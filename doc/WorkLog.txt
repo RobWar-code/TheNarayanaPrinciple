@@ -1,0 +1,20 @@
+Work Log
+
+Due
+
+    Do up a level function
+    
+    * Add function to extract page detail headings for upper level pages
+    
+    * Do site layout analysis in README
+
+    * Do section/book/page logic analysis in README
+
+    * Split global functions into object module
+
+    * Do trial of page turning effect using turn.js, sample from chatGPT
+        Adjust width/position of page to allow right margin
+    
+    * Prepare initial technical notes
+
+    * Prepare outline headings ready to receive detail

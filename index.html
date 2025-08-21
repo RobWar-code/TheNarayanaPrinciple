@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>The Narayana Principle</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <!-- jQuery + turn.js (classic build) -->
+  <script src="https://code.jquery.com/jquery-3.7.1.js" 
+    integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>  
+  <script src="https://cdn.jsdelivr.net/gh/blasten/turn.js@master/turn.min.js"></script>
+  <link rel="stylesheet" href="src/styles/styles.css">
+</head>
+<body>
+  <div class="floatBox" id="subsectionsContainer">
+    <h3>Detail Sections</h3>
+    <div id="subsectionsListDiv">
+
+    </div>
+    <p class="clickListPrompt">Click a list entry</p>
+  </div>
+
+  <div class="wrap">
+    <div id="bookBorder">
+      <div id="book" aria-label="Book with page turn effect"></div>
+    </div>
+
+    <div class="chrome" role="group" aria-label="Page controls">
+      <button class="ctrl" id="prev" aria-label="Previous page">⟵ Prev</button>
+      <span class="hint">Use ← → keys or click page corners</span>
+      <button class="ctrl" id="next" aria-label="Next page">Next ⟶</button>
+    </div>
+  </div>
+
+  <script src="src/jsScripts/pageTexts.js"></script>
+  <script src="src/jsScripts/bookHandler.js"></script>
+  <script>
+
+    // ---- Setup & resize handling ----
+    window.addEventListener('resize', () => {
+      clearTimeout(window._rsz);
+      window._rsz = setTimeout(bookHandler.sizeBook, 80);
+    });
+
+    // First paint
+    bookHandler.initSections();
+    bookHandler.initBook(pageTexts, "101");
+  </script>
+</body>
+</html>

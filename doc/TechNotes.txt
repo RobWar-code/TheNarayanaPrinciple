@@ -1,0 +1,16 @@
+Technical Notes
+
+    Contents
+        Site Technology
+        Site Layout
+
+
+<h1>Site Technology
+    Page Preparation - Libre Office, exported as PDF and/or HTML
+    Possible animation effects - technology to be decided
+
+<h1>Site Layout
+    Main narrative section as a book with page turning animation.
+    
+    Background science section as a separate set of pages using
+    a more formal approach.

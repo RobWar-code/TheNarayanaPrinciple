@@ -185,24 +185,25 @@ const bookHandler = {
                 else if (level < lastLevel) {
                     let hObj = this.decodeHierarchicalKey(lastHierarchicalKey, level);
                     pageNum = ++hObj.pageNum;
-                    pageRef = hObj.pageRef;
+                    refNum = hObj.refNum;
                     let hKey = lastHierarchicalKey.substring(0, level * this.hKeyLen);
                     sectionNum = this.findSectionNum(hKey);
                     page.sectionNum = sectionNum;
                     page.refNum = refNum;
                     page.pageNum = pageNum;
                     hierarchicalKey = this.makeHierarchicalKey(lastHierarchicalKey, lastLevel, level, refNum, pageNum);
+                    console.log(hierarchicalKey);
+                    hadSectionEnd = false;
+                }
+            }
+            if ("sectionEnd" in page) {
+                if (page.sectionEnd && level === lastLevel) {
+                    hadSectionEnd = true;
                 }
             }
             page.hierarchicalKey = hierarchicalKey;
             lastHierarchicalKey = hierarchicalKey;
             lastLevel = level;
-         
-            if ("sectionEnd" in page) {
-                if (page.sectionEnd) {
-                    hadSectionEnd = true;
-                }
-            }
             ++index;
         }
     },
@@ -219,6 +220,7 @@ const bookHandler = {
             if (hKey1 === hKey2.substring(0, hKey1.length)) {
               if (hKey2.substring(hKey2.length - 2) === "01") {
                 detailRefs.push({refText: pageTexts[i].heading});
+                console.log(pageTexts[i].heading);
               } 
             }
             else if (hKey1 < hKey2.substring(0, hKey1.length)) {
@@ -230,8 +232,9 @@ const bookHandler = {
           }
         }
         if (detailRefs.length > 0) {
-          page.detailRefs = detailRefs;
+          page.detailRefs = detailRefs.concat();
         }
+        ++index;
       }
     },
 
@@ -319,6 +322,7 @@ const bookHandler = {
           bookHandler.turnDone = true;
           $b.turn('next');
         }
+        console.log("next event - currentHKey:", this.currentHKey);
       });
 
       $('#prev').on('click.bookNav', () => {
@@ -406,6 +410,7 @@ const bookHandler = {
       $("#subsectionsContainer").show();
       // Get the subsections titles list from the page data
       let subsectionsList = pageTexts[this.currentIndex].detailRefs;
+      console.log("displayDetailsList - subsectionsList, currentIndex", subsectionsList, this.currentIndex);
       // Create the list html
       let html = "<ul>";
       let counter = 1;
@@ -422,6 +427,7 @@ const bookHandler = {
       $("#subsectionsContainer").hide();
       let refNum = event.currentTarget.dataset.ref_num;
       this.currentHKey = this.currentHKey + refNum + "01";
+      console.log("displaySubsection: HKey:", this.currentHKey);
       this.currentIndex = this.findSection(this.currentHKey);
       this.currentPage = 1;
       this.currentLevel += 1;

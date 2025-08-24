@@ -9,7 +9,7 @@ const bookHandler = {
     sizeBook() {
       const wrap = document.querySelector('.wrap');
       const vw = Math.min(1200 - 45, wrap.clientWidth - 45); // clamp width
-      const vh = Math.min(900 - 125, window.innerHeight - 125); // leave room for controls
+      const vh = Math.min(900 - 185, window.innerHeight - 185); // leave room for controls
       let width = vw;
       let height = vh;
       let borderWidth = width + (width * 15/1200);
@@ -34,16 +34,18 @@ const bookHandler = {
         if ("art1" in p) {
           html += `<div class="artDiv"><img class="art" src="${p.art1}" aria-label="Art for paragraph" width=320 height=240><div>`;
         }
-        html += `<div class="levelButtonDiv"><button class="detailUpBtn" id="${"detailUpBtn" + index}">`;
-        html += `<img src="assets/images/detailUp.png" aria-label="Up a level" title="Up a detail level"></button></div>`;
+        html += `<div class="levelButtonDiv">`;
+        html += `<img src="assets/images/DetailUp3.png" class="detailUpBtn" id="${"detailUpBtn" + index}"
+        aria-label="Up a level" title="Up a detail level"></div>`;
         if ("heading" in p) {
           html += `<div class="headingDiv"><h2>${p.heading}</h2></div>`;
         }
         else {
           html += `<div class="headingDiv"></div>`;
         }
-        html += `<div class="levelButtonDiv"><button class="detailDownBtn" id="${"detailDownBtn" + index}">`;
-        html += `<img src="assets/images/detailDown.png" aria-label="Down to detail" title="Down to level"></button></div>`;
+        html += `<div class="levelButtonDiv"><img src="assets/images/DetailDown3.png" class="detailDownBtn" 
+        id="${"detailDownBtn" + index}" 
+          aria-label="Down to detail" title="Down to detail"></div>`;
         if ("contents" in p) {
           for (let content of p.contents) {
             html += `<p>${content}</p>`;
@@ -192,7 +194,6 @@ const bookHandler = {
                     page.refNum = refNum;
                     page.pageNum = pageNum;
                     hierarchicalKey = this.makeHierarchicalKey(lastHierarchicalKey, lastLevel, level, refNum, pageNum);
-                    console.log(hierarchicalKey);
                     hadSectionEnd = false;
                 }
             }
@@ -220,7 +221,6 @@ const bookHandler = {
             if (hKey1 === hKey2.substring(0, hKey1.length)) {
               if (hKey2.substring(hKey2.length - 2) === "01") {
                 detailRefs.push({refText: pageTexts[i].heading});
-                console.log(pageTexts[i].heading);
               } 
             }
             else if (hKey1 < hKey2.substring(0, hKey1.length)) {
@@ -309,7 +309,10 @@ const bookHandler = {
         }
         if (e.key === 'ArrowLeft') {
           var doTurn = bookHandler.turnPage('previous');
-          if (doTurn) $b.turn('previous');
+          if (doTurn) {
+            bookHandler.turnDone = true;
+            $b.turn('previous');
+          }
         };
       });
 
@@ -322,14 +325,16 @@ const bookHandler = {
           bookHandler.turnDone = true;
           $b.turn('next');
         }
-        console.log("next event - currentHKey:", this.currentHKey);
       });
 
       $('#prev').on('click.bookNav', () => {
         const $b = $('#book');
         if (!$b.length) return;
         var doTurn = bookHandler.turnPage('prev');
-        if (doTurn) $b.turn('previous');
+        if (doTurn) {
+          bookHandler.turnDone = true;
+          $b.turn('previous');
+        }
       });
 
       // Prevent end of section page turn
@@ -402,6 +407,7 @@ const bookHandler = {
       this.currentPage = parseInt(parentHKey.substring(parentHKey.length - 2));
       this.currentLevel -= 1;
       this.currentHKey = parentHKey;
+      this.turnDone = true;
       $('#book').turn("page", this.currentPage);
       this.displayPageTools();
     },
@@ -410,7 +416,6 @@ const bookHandler = {
       $("#subsectionsContainer").show();
       // Get the subsections titles list from the page data
       let subsectionsList = pageTexts[this.currentIndex].detailRefs;
-      console.log("displayDetailsList - subsectionsList, currentIndex", subsectionsList, this.currentIndex);
       // Create the list html
       let html = "<ul>";
       let counter = 1;
@@ -427,10 +432,10 @@ const bookHandler = {
       $("#subsectionsContainer").hide();
       let refNum = event.currentTarget.dataset.ref_num;
       this.currentHKey = this.currentHKey + refNum + "01";
-      console.log("displaySubsection: HKey:", this.currentHKey);
       this.currentIndex = this.findSection(this.currentHKey);
       this.currentPage = 1;
       this.currentLevel += 1;
+      this.turnDone = true;
       // Go to the page data
       $('#book').turn("page", this.currentIndex + 1);
       this.displayPageTools();

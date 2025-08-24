@@ -1,5 +1,5 @@
 :root {
-    --bg: #0b0d12;
+    --bg: #504010;
     --paper: #0f1320;
     --ink: #dfe7ff;
     --accent: #c6a45b;
@@ -57,12 +57,14 @@ button.ctrl:active { transform: translateY(1px); }
 /* Book container */
 #book {
     box-shadow: 0 40px 80px var(--shadow);
+    border-radius: 14px 0 0 14px;
     overflow: hidden;
     background: #0d1120;
 }
 
 #bookBorder {
     margin: 0 auto;
+    border-radius: 14px 0 0 14px;
     background-image: url("../../assets/images/bookBorders.png");
     background-size: 100% 100%;     /* scales image to cover container */
     background-repeat: no-repeat;
@@ -101,9 +103,9 @@ button.ctrl:active { transform: translateY(1px); }
 
 /* Subsection list */
 .floatBox {
-    position: absolute;
-    left: 0px;
-    top: 0px;
+    position: fixed;
+    left: 5px;
+    top: 5px;
     width: 60%;
     max-width: 300px;
     min-height: 120px;
@@ -112,7 +114,7 @@ button.ctrl:active { transform: translateY(1px); }
     border-radius: 12px;
     background-color: palegoldenrod;
     text-align: center;
-    z-index: 5;
+    z-index: 9000;
 }
 
 #subsectionsContainer {

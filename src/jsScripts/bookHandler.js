@@ -32,30 +32,56 @@ const bookHandler = {
         // Do html
         let html = `<div class="page">`;
         if ("art1" in p) {
-          html += `<div class="artDiv"><img class="art" src="${p.art1}" aria-label="Art for paragraph" width=320 height=240><div>`;
+          html += `<div class="artDiv"><img class="art" src="${p.art1}" aria-label="Art for paragraph" width=320 height=220><div>`;
         }
         html += `<div class="levelButtonDiv">`;
         html += `<img src="assets/images/DetailUp3.png" class="detailUpBtn" id="${"detailUpBtn" + index}"
-        aria-label="Up a level" title="Up a detail level"></div>`;
+        aria-label="Up a level" title="Up a detail level" width:"30" height:"30">`;
+        html += `<img src="assets/images/DetailDown3.png" class="detailDownBtn" 
+        id="${"detailDownBtn" + index}" aria-label="Down to detail" title="Down to detail" width:"30" height:"30">`;
+        html += "</div>";
+
         if ("heading" in p) {
           html += `<div class="headingDiv"><h2>${p.heading}</h2></div>`;
         }
         else {
           html += `<div class="headingDiv"></div>`;
         }
-        html += `<div class="levelButtonDiv"><img src="assets/images/DetailDown3.png" class="detailDownBtn" 
-        id="${"detailDownBtn" + index}" 
-          aria-label="Down to detail" title="Down to detail"></div>`;
         if ("contents" in p) {
+          if (("art1" in p) && ("heading" in p)) {
+            html += "<div class='paraTexts'>";
+          }
+          else if ("art1" in p) {
+            html += "<div class='paraTextsMedium'>"
+          }
+          else {
+            html += "<div class='paraTextsLong'>";
+          }
           for (let content of p.contents) {
             html += `<p>${content}</p>`;
           }
+          html += "</div>"
         }
         if ("content" in p) {
+          if (("art1" in p) && ("heading" in p)) {
+            html += "<div class='paraTexts'>";
+          }
+          else if ("art1" in p) {
+            html += "<div class='paraTextsMedium'>"
+          }
+          else {
+            html += "<div class='paraTextsLong'>";
+          }
           html += `<p>${p.content}</p>`;
+          html += "</div>"
         }
         if ("art2" in p) {
           html += `<img src="${p.art2}" aria-label="Emblem for book" width=320 height=240>`; 
+        }
+        if ("sectionEnd" in p) {
+          if (p.sectionEnd) {
+            html += `<p class="sectionEnd">Section End</p>`;
+          }
         }
         html += "</div>";
         htmlArray.push(html);

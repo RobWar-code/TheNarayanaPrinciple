@@ -125,7 +125,7 @@ can grow — a vast field where matter, energy, and form can dance.`
     {
         level: 1,
         art1: "assets/images/multiverseCrop.png",
-        heading: `The Formation of Universes`,
+        heading: `Formation of Universes`,
         contents: [
             `Matter begins to gather, guided by gravity and quantum forces. \
 Clusters form, some collapsing quickly, others expanding into micro-universes — \
@@ -137,7 +137,7 @@ weave galaxies, and set the stage for life-like processes.`
     {
         level: 1,
         art1: "assets/images/universeEmergenceCrop.png",
-        heading: `The Evolution of Universes`,
+        heading: `Evolution of Universes`,
         contents: [
             `Once a universe is stable, it may give birth to others. Black holes may \
 serve as seeds, each one a potential portal into a new reality.`,
@@ -159,7 +159,7 @@ conditions are stable and diverse enough, these processes persist and evolve.`
     },
     {
         level: 2,
-        heading: "The Evolution of Life",
+        heading: "Evolution of Life",
         content: `Life on Earth emerged from humble beginnings in the primordial oceans, \
 where chemistry gradually gave rise to self-replicating molecules and simple cells. From these \
 origins, evolution proceeded not with inevitability, but with contingency — shaped by chance \
@@ -188,21 +188,32 @@ evolution is less a smooth ascent than a punctuated story of chance, collapse, a
     },
     {
         level: 2,
-        content: `Even the emergence of mammals, flowering plants, and ultimately humans was contingent \
-upon these great upheavals. Each turning point was shaped not only by adaptation, but also by accidents \
-of geology, climate, and cosmic events. Had any one of them unfolded differently, Earth might have harbored a \
-completely alien biosphere — or perhaps none at all.`
+        content: `Around 66 million years ago, the Cretaceous–Paleogene (K/T) boundary marked one of \
+Earth’s most dramatic extinction events. Triggered primarily by a massive asteroid impact near present-day \
+Chicxulub in Mexico, combined with widespread volcanic activity in the Deccan Traps, the event caused \
+catastrophic climate disruption. Dust and aerosols blocked sunlight, halting photosynthesis, collapsing \
+food chains, and driving the extinction of about 75% of species—including the non-avian dinosaurs that \
+had dominated terrestrial ecosystems for over 150 million years.`
+    },
+    {
+        level: 2,
+        content: `In the ecological space left behind, mammals—previously small, nocturnal, and largely \
+marginalized — were able to diversify and radiate. Freed from the dominance of dinosaurs, they adapted \
+into a wide range of niches: from insectivores to grazers, from arboreal primates to marine forms like \
+whales. This evolutionary flowering set the stage for the eventual rise of primates and, much later, human \
+sapience, reshaping the trajectory of life on Earth in a profound and lasting way.`
     },
     {
         level: 2,
         content: `Taken together, the story of life underscores the deep role of probability. Evolution is \
 a process of exploration through trial and error, tested against ever-changing conditions. What seems in \
 retrospect a chain leading to us was, in reality, an improbable series of survivals and extinctions, woven \
-from both necessity and chance.`
+from both necessity and chance.`,
+        sectionEnd: true
     },
     {
         level: 1,
-        heading: "The Rise of Sapience",
+        heading: "Rise of Sapience",
         contents: [
             `Among the many branches of life, some develop nervous systems and \ 
 perception. In a few, awareness becomes self-awareness.`,
@@ -215,7 +226,7 @@ lifespans.`
     {
         level: 1,
         art1: "assets/images/manEvolutionCrop.png",
-        heading: "The Arising of Sapient Beings",
+        heading: "Sapient Beings",
         content:  `In the forests and savannas of Earth, primates first lived in troupes, \
 warning each other of danger and using their hands to climb, forage, and manipulate. As \
 some spent more time on the ground, their hands turned to the use of tools — sticks for \
@@ -230,7 +241,34 @@ cooperation became society and civilisations.`
     },
     {
         level: 1,
+        art1: "assets/images/kingCrop.png",
+        heading: "Individualism v. Collectivism",
+        content: "In the early stages of civilisation, survival favored a careful balance between \
+individual initiative and collective cohesion. \
+Small groups depended on cooperation for protection, shared knowledge, and continuity. \
+At the same time, variation among individuals—differences in skill, risk tolerance, and \
+imagination—provided the raw material for adaptation."
+    },
+    {
+        level: 1,
+        content: "Too much collectivism produced stagnation; too much individualism fractured the group. \
+Civilisations emerged by extending this balance through symbols, myths, \
+laws, and institutions. These mechanisms allowed cooperation to scale beyond kinship and immediate \
+reciprocity, binding strangers into functional wholes. For a time, the balance held. \
+Yet these structures evolved faster than the instincts that supported them. As populations grew \
+and abstraction replaced direct consequence, individual advantage increasingly decoupled \
+from collective outcome."
+    },
+    {
+        level: 1,
+        content: "What once aligned survival and cooperation began to diverge.\
+This tension did not signal failure. It marked a transition point: the moment when intelligence \
+first had to choose whether identity would remain local, or expand with the scale of its own creations."
+    },
+    {
+        level: 1,
         art1: "assets/images/scienceCrop.png",
+        heading: "The Growth of Knowledge",
         content: `Their knowledge grew through trial and error, woven from the threads \
 of countless lives. Even science itself emerged from such happenstance, driven by the \
 convergences of circumstance, inclination, and curiosity.`
@@ -260,7 +298,11 @@ fragile and contingent the unfolding of knowledge has been.`,
         heading: `Leonardo da Vinci (1452–1519)`,
         content: `Leonardo’s insatiable curiosity spanned art, engineering, anatomy, and \
 natural philosophy. Much of his scientific exploration arose from chance intersections with \
-his artistic commissions. In attempting to depict the human body accurately in painting and \
+his artistic commissions.` 
+    },
+    {
+        level: 2,
+        content: `In attempting to depict the human body accurately in painting and \
 sculpture, he began dissections that revealed muscular and skeletal structures in unprecedented \
 detail. His notebooks show a mind that often pursued a scientific question only because it \
 happened to intersect with an artistic challenge.`
@@ -301,13 +343,14 @@ triumph into personal tragedy—house arrest until his death.`,
         heading: `Isaac Newton (1642–1727)`,
         content: `Newton’s most famous inspiration—the falling apple—may be apocryphal, yet it captures \
 a truth: chance observations sparked his greatest insights. Forced into seclusion during the Great Plague \
-of 1665–1666, Newton happened upon the time and solitude to rethink mathematics, optics, and celestial \
-mechanics. The closure of Cambridge University—a catastrophe for many—provided him with the intellectual \
-space to create calculus and the law of gravitation.`
+of 1665–1666, `
     },
     {
         level: 2,
-        content: `His work was also shaped by the accidents of rivalry. His feud with Robert Hooke and \
+        content: `Newton happened upon the time and solitude to rethink mathematics, optics, and celestial \
+mechanics. The closure of Cambridge University—a catastrophe for many—provided him with the intellectual \
+space to create calculus and the law of gravitation. \
+His work was also shaped by the accidents of rivalry. His feud with Robert Hooke and \
 later with Gottfried Leibniz over priority in discovery pushed him to formalize, publish, and defend his \
 theories more aggressively than he might otherwise have done. Without such personal happenstance, much of \
 Newton’s work might have languished unpublished or unfinished.`,

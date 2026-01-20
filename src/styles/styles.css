@@ -21,19 +21,37 @@ html, body {
 .artDiv {
     margin: 0 auto;
 }
-.levelButtonDiv {
-    display: inline-block;
-    width: 19%;
+
+.artDiv img {
+    vertical-align: middle;
 }
+
+.levelButtonDiv {
+    display: block;
+    margin-top: 0;
+    margin-bottom: 0;
+    width: 96%;
+    text-align: center;
+}
+
+.levelButtonDiv img {
+    vertical-align: middle;
+}
+
 #detailUpBtn {
     display: none;
+    margin-top: 1px;
+    margin-bottom: 1px;
 }
 #detailDownBtn {
     display: none;
+    margin-top: 1px;
+    margin-bottom: 1px;
 }
 .headingDiv {
-    display: inline-block;
-    width: 60%;
+    display: block;
+    margin: 2px;
+    width: 98%;
 }
 .chrome {
     display: flex;
@@ -84,10 +102,22 @@ button.ctrl:active { transform: translateY(1px); }
 }
 
 .page h2 {
-    margin: 0 0 .3rem;
-    font-weight: 700;
-    letter-spacing: .02em;
+    margin: 0 auto;
+    font-size: 22px;
+    line-height: 1.05;
     color: var(--accent);
+}
+.paraTexts {
+    max-height: 160px;
+    overflow: auto;
+}
+.paraTextsMedium {
+    max-height: 360px;
+    overflow: auto;
+}
+.paraTextsLong {
+    max-height: 450px;
+    overflow: auto;
 }
 .page p { margin: 0 auto; max-width: 60ch; }
 .page .art {
@@ -99,6 +129,10 @@ button.ctrl:active { transform: translateY(1px); }
     radial-gradient(240px 180px at 80% 70%, rgba(255,255,255,.06), transparent 60%),
     linear-gradient(135deg, #0b1d33, #15233b 60%, #0b1328);
     box-shadow: inset 0 0 0 1px rgba(255,255,255,.04), 0 20px 40px var(--shadow);
+}
+
+.page .sectionEnd {
+    font-style: italic;
 }
 
 /* Subsection list */
